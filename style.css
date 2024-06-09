@@ -1,0 +1,115 @@
+:root{
+    --mercury-rotation: 5s;
+    --venus-rotation: 7s;
+    --earth-rotation: 9s;
+    --mars-rotation: 11s;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at 75% 75%,
+    #385284,
+    #27274b,
+    #20437d,
+    #141229,
+    #1e1c48);
+}
+.solar-system {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+.sun {
+    height: 8em;
+    width: 8em;
+    border-radius: 50%;
+    position: absolute;
+    background: rgb(204, 144, 14);
+    box-shadow: 10px 10px 20px 0px #f5f596,
+    -10px -20px 20px 0px #f5f596, 10px 0px rgb(232, 183, 93),
+    -10px  10px 20px 0px #dcdc04;
+}
+.orbit-container {
+
+    position: absolute;
+}
+.orbit {
+    position: relative;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: rotateX(75deg);
+    transform-style: preserve-3d;
+}
+    .orbit-container:nth-child(2) > .orbit {
+        height: 20em;
+        width: 20em;
+        animation: var(--mercury-rotation) revolution linear;
+
+    }
+    .orbit-container:nth-child(3) > .orbit {
+        height: 27em;
+        width: 27em;
+        animation: var(--venus-rotation) revolution linear;
+    }
+    .orbit-container:nth-child(4) > .orbit {
+        height: 35em;
+        width: 35em;
+        animation: var(--earth-rotation) revolution linear;
+
+    }
+    .orbit-container:nth-child(5) > .orbit {
+        height: 42em;
+        width: 42em;
+        animation: var(--mars-rotation) revolution linear;
+    }
+    .planet {
+    position: absolute;
+    border-radius: 50%;
+    bottom: 0%;
+    left: 50%;
+    transform: translateY(50%) rotateX(-75deg);
+    }
+    .mercury {
+        height: 1.5em;
+        width: 1.5em;
+        background: #f67606;
+        animation: var(--mercury-rotation) rotation linear;
+    }
+    .venus {
+        height: 2.7em;
+        width: 2.7em;
+        background: #3d4bb0;
+        animation: var(--venus-rotation) rotation linear;
+    }
+    .earth {
+        height: 3em;
+        width: 3em;
+        background: aqua;
+        animation: var(--earth-rotation) rotation linear;
+    }
+    .mars {
+        height: 2.2em;
+        width: 2.2em;
+        background: #5b3634;
+        animation: var(--mars-rotation) rotation linear;
+    }
+    @keyframes revolution {
+        from{
+            transform: rotateX(75deg) rotateZ(0deg);
+            }
+        to {
+            transform: rotateX(75deg) rotateZ(360deg);
+        }
+    }
+    @keyframes rotation {
+        from {
+            transform: translateY(50%) rotateX(-75deg);
+        }
+        to {
+            transform: translateY(50%) rotateX(-75deg);
+        }
+    }
